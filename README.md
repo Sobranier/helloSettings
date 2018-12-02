@@ -16,12 +16,16 @@
 
 ### 3、命令行工具们
 ```
+// 部分工具需要比较新的vim版本，建议开始就重装
+brew install vim
 auto suggestions
 brew install keychain
-brew install vim
-brew install ack:
+brew install ack
 brew install tree
 brew install fzf
+// you complete me 的安装需要先安装cmake
+brew install cmake
+
 nrm
 fanyi
 https://github.com/zsh-users/zsh-autosuggestions
@@ -39,5 +43,3 @@ https://segmentfault.com/a/1190000011328080
 
 5、TODO
 * 快速缩进
-* 快速注释
-* 提示功能
