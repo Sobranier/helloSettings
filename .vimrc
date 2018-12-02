@@ -25,7 +25,7 @@ Plug 'mxw/vim-jsx'
 " vue 语法高亮
 Plug 'posva/vim-vue'
 " 文件树，个人不怎么用
-Plug 'scrooloose/nerdtree'
+" Plug 'scrooloose/nerdtree'
 " wakatime
 Plug 'wakatime/vim-wakatime'
 " vim-surround 个人习惯手写封闭标签
@@ -64,6 +64,10 @@ highlight CursorColumn ctermfg=green
 set number
 " 右下角有行号显示，可能会和插件冲突
 set ruler
+" 顶部line的样式，尝试感觉没有默认的效果好
+" let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+let g:airline_theme='deus'
 
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " ~~~~~~~~~~~~~~~~~~~  缩进
@@ -207,7 +211,7 @@ nmap <C-H> :tabprevious<CR>
 map <C-N> :set number!<CR>
 
 " 开关nerdtree
-map <C-M> :NERDTreeToggle<CR>
+" map <C-M> :NERDTreeToggle<CR>
 
 " 内容全选快捷键
 map <C-a> gg0vG$<cr>
@@ -219,7 +223,6 @@ vnoremap <C-c> "+y
 map  <C-v> "+p
 imap <C-v> <esc>"+pa
 vmap <C-v> d"+P
-
 
 " ===============================================================================
 " ======================================= 自定义方法
