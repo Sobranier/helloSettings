@@ -5,9 +5,30 @@
 call plug#begin('~/.vim/plugged')
 
 " Declare the list of plugins.
-Plug '/usr/local/opt/fzf'
-" Plug 'tpope/vim-sensible'
-" Plug 'junegunn/seoul256.vim'
+" 文件搜索 快速跳转
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+" Plug默认插件，统配设置，跨不同端
+Plug 'tpope/vim-sensible'
+" Plug默认插件，主题相关，不一定要装
+Plug 'junegunn/seoul256.vim'
+" 代码检测  TODO: 添加全局eslint?
+Plug 'w0rp/ale'
+" 状态栏
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+" 自动补全
+Plug 'Valloric/YouCompleteMe'
+" jsx 语法高亮
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+" vue 语法高亮
+Plug 'posva/vim-vue'
+" 文件树，个人不怎么用
+Plug 'scrooloose/nerdtree'
+" wakatime
+Plug 'wakatime/vim-wakatime'
+" vim-surround 个人习惯手写封闭标签
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
@@ -34,7 +55,7 @@ set history=80
 " 当前行显示下划线
 set cursorline
 highlight CursorLine ctermfg=green
-" highlight CursorLine   cterm=NONE ctermbg=black ctermfg=green guibg=NONE guifg=NONE
+" highlight CursorLine cterm=NONE ctermbg=black ctermfg=green guibg=NONE guifg=NONE
 " 当前列显示
 set cursorcolumn
 highlight CursorColumn ctermfg=green
@@ -69,6 +90,10 @@ set smartindent
 set linebreak
 " 设置自动折行
 set wrap
+
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+" ~~~~~~~~~~~~~~~~~~~  状态栏
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " 状态栏带提示
 set wildmenu
 " 状态栏高度
@@ -180,6 +205,9 @@ nmap <C-H> :tabprevious<CR>
 
 " 是否显示行号
 map <C-N> :set number!<CR>
+
+" 开关nerdtree
+map <C-M> :NERDTreeToggle<CR>
 
 " 内容全选快捷键
 map <C-a> gg0vG$<cr>
