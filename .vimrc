@@ -24,6 +24,8 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 " vue 语法高亮
 Plug 'posva/vim-vue'
+" ts 语法高亮
+Plug 'leafgarland/typescript-vim'
 " 文件树，个人不怎么用
 " Plug 'scrooloose/nerdtree'
 " wakatime
@@ -54,7 +56,7 @@ set history=80
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " 当前行显示下划线
 set cursorline
-highlight CursorLine ctermfg=green
+" highlight CursorLine
 " highlight CursorLine cterm=NONE ctermbg=black ctermfg=green guibg=NONE guifg=NONE
 " 当前列显示
 set cursorcolumn
@@ -154,6 +156,12 @@ filetype indent on
 filetype plugin on
 filetype plugin indent on
 filetype on
+" 设置typescript文件类型
+"augroup FiletypeGroup
+"    autocmd!
+"    " .ts is a Typescript file
+"    au BufNewFile,BufRead *.ts set filetype=typescript
+"augroup END
 " 缓冲编码
 set encoding=utf-8
 set fileencodings=utf-8,cp936,gb18030,big5,gbk,euc-jp,latin1
@@ -164,7 +172,7 @@ set termencoding=utf-8
 autocmd FileType php,javascript,html,css,python,vim,vimwiki set ff=unix
 
 " ===============================================================================
-" ======================================= 代码折叠与语法高亮
+" ======================================= 代码折叠与语法高亮、代码检测
 " ===============================================================================
 
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -194,6 +202,12 @@ let javascript_enable_domhtmlcss=1
 syntax enable
 " 开启文件类型侦测
 syntax on
+
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+" ~~~~~~~~~~~~~~~~~~~  ts代码检测
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+let g:ale_linter_aliases = {'ts': ['javascript']}
+let g:ale_linters = {'ts': ['tslint']}
 
 " ===============================================================================
 " ======================================= 快捷键
